@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MU 事件风险日历 · 只读版</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">MU EVENT RISK · PUBLIC</p>
+      <h1>事件风险日历</h1>
+      <p class="subtitle">公开只读版 · 公告时间已映射到受影响的策略窗口</p>
+    </div>
+    <div class="header-actions">
+      <span class="button ghost" id="updatedAt">读取数据中…</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="stats" id="stats"></section>
+    <section class="toolbar card">
+      <div class="month-nav">
+        <button class="icon-button" id="prevMonth" aria-label="上个月">‹</button>
+        <button class="today-button" id="today">今天</button>
+        <button class="icon-button" id="nextMonth" aria-label="下个月">›</button>
+        <h2 id="monthTitle"></h2>
+      </div>
+      <div class="filters">
+        <input id="search" type="search" placeholder="搜索公司、代码或事件">
+        <select id="actionFilter">
+          <option value="">全部建议</option>
+          <option value="STOP">只看 STOP</option>
+          <option value="HALF">只看 HALF</option>
+          <option value="WATCH">只看 WATCH</option>
+          <option value="RUN">只看 RUN</option>
+        </select>
+        <select id="statusFilter">
+          <option value="">全部状态</option>
+          <option value="confirmed">官方确认</option>
+          <option value="estimated">预计日期</option>
+          <option value="changed">日期变更</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="calendar card">
+      <div class="weekdays">
+        <span>周一</span><span>周二</span><span>周三</span><span>周四</span><span>周五</span><span>周六</span><span>周日</span>
+      </div>
+      <div class="calendar-grid" id="calendarGrid"></div>
+    </section>
+
+    <section class="event-list card">
+      <div class="section-heading">
+        <div><p class="eyebrow">UPCOMING / SELECTED MONTH</p><h2>事件明细</h2></div>
+        <span id="resultCount" class="muted"></span>
+      </div>
+      <div id="eventList"></div>
+    </section>
+  </main>
+
+  <dialog id="detailDialog">
+    <div id="eventForm">
+      <div class="dialog-heading">
+        <div><p class="eyebrow">READ ONLY</p><h2 id="detailTitle"></h2></div>
+        <button type="button" class="close-button" id="closeDetail">×</button>
+      </div>
+      <div id="detailBody"></div>
+    </div>
+  </dialog>
+  <script src="./app.js"></script>
+</body>
+</html>
+
